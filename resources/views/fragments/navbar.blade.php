@@ -10,30 +10,32 @@
 
     nav p
     {
-        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font.size:25px;
+        padding-inline: 50px;
     }
 
-    a
-    {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        padding-block: 10px;
-        padding-inline: 20px;
-    }
+nav p
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font.size: 25px;
+    padding-inline:50px;
+}
 
-    nav p a:hover
-    {
-        background: red;
-        padding-block: 10-px;
-        padding-inline: 10px;
-        border-radius: 5%;
-    }
+nav p a
+{
+    color:lemonchiffon;
+    text-decoration: none;
+    padding-block: 10px;
+    padding-inline: 10px;
+    margin-inline: -4px;
 
-    *
-    {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    nav p a:hover{
+        background:orange;
+        padding-block:20px;
+        padding-inline:10px;
     }
+}
 </style>
 
 

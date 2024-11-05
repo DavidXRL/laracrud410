@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        echo "Index Productos";
+
         return view('products_index');
     }
 
