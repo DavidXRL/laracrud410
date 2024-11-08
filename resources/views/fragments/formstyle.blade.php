@@ -5,7 +5,7 @@
 
     form
     {
-        width:300px;
+        width:250px;
         padding-inline: 20px;
         padding-block: 20px;
         border-radius: 12px;
@@ -15,8 +15,8 @@
     }
 
     form label{
-        width: 140px;
-        height: 50px;
+        width: 300px;
+        height: 20px;
         font-weight: bold;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         display: inline-block;
@@ -25,7 +25,6 @@
     form input[type:"text"],
     form input[type:"number"]
     {
-        width:200px;
         padding-block:3px;
         border: 1px solid #ffffff;
         border-radious: 3px;
@@ -44,5 +43,15 @@
         display: block;
         color: #fff;
         background-color: #000;
+    }
+
+    form select
+    {
+        width: 100%;
+    }
+
+    form input
+    {
+        width: 100%;
     }
 </style>

@@ -9,11 +9,13 @@
 
 <form action="{{route('products.store')}}" method="post">
     @csrf
-    <label for="">Nombre del roducto</label>
-    <input type="text" name="nameProduct">
+    <label for="">Nombre del producto</label>
+    <input type="text" name="name_product">
+
+    <br>
+    <br>
 
     <label for="">Marca</label>
-    <br>
     <select name="brand_id">
         <option value="">Selecciona...</option>
         @foreach ( $brands as  $brand => $id)
@@ -21,11 +23,20 @@
         @endforeach
     </select>
 
+    <br>
+    <br>
+
     <label for="">Cantidad</label>
     <input type="number" name="nameProduct">
 
+    <br>
+    <br>
+
     <label for="">Precio unitario</label>
     <input type="text" name="unit_price">
+
+    <br>
+    <br>
 
     <label for="">Imagen</label>
     <input type="text" name="imagen">
