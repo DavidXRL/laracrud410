@@ -3,7 +3,8 @@
 @section('content')
 <h2>Index products</h2>
 <br>
-<button><a href="{{route('products.create')}}">Crear producto</a></button>
+<button><a href="{{route('products.create')}}">Crear Producto</a></button>
+<button><a href="{{route('brands.create')}}">Crear Marca</a></button>
 <br>
 <br>
 <table>
@@ -24,7 +25,7 @@
                 <td>{{$p -> unit_price}}</td>
                 <td>{{$p -> imagen}}</td>
                 <td><button><a href="{{route("products.show", $p)}}">Mostrar</a></button></td>
-                <td><button><a href="">Editar</a></button></td>
+                <td><button><a href="{{route("products.edit", $p)}}">Editar</a></button></td>
                 <td><button><a href="">Eliminar</a></button></td>
             </tr>
         @endforeach
@@ -40,3 +41,5 @@
         padding-right: 15px;
     }
 </style>
+
+

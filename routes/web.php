@@ -59,4 +59,5 @@ Route::get('/createProducts', [App\Http\Controllers\ProductController::class, 'c
 //RUTA DE TIPO RECURSOS PARA MÉTODOS REST, QUE PERMITE CREAR LAS RUTAS PARA UN CRUD DE LAS 7 FUNCIONES DE UN CONTROLLER
 
  route::resource('/products', App\Http\Controllers\ProductController::class);
+ route::resource('/brands', App\Http\Controllers\BrandController::class);
 
