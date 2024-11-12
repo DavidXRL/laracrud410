@@ -1,3 +1,11 @@
-<div>
-    <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-</div>
+@extends('layout.main_template')
+
+@section('content')
+
+<h1>Detalles del producto</h1>
+<h3>Producto: {{$product->name_product}}</h3>
+<h3>Cantidad: {{$product->stock}}</h3>
+<h3>Precio: {{$product->unit_price}}</h3>
+<h3>Imagen: {{$product->imagen}}</h3>
+
+@endsection
