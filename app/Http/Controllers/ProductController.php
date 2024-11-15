@@ -66,11 +66,20 @@ class ProductController extends Controller
         return to_route('products.index') -> with ('status', 'Producto actualizado.');
     }
 
+
+    public function delete(Product $product)
+    {
+        echo view ('products_delete', compact('product'));
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
     {
-        echo "Destroy Productos";
+        $product->delete();
+        return to_route('products.index') -> with ('status', 'Producto eliminado');
     }
+
+
 }

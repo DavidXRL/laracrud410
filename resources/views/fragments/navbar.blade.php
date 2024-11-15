@@ -13,6 +13,8 @@
         padding-block: 4px;
         margin-block: -8px;
         margin-inline: -8px;
+        position: sticky;
+        top: 0;
     }
 
     nav p

@@ -33,7 +33,7 @@
         display:flex;
     }
 
-    form button[type = "submit"]
+    form button
     {
         width: 100%;
         padding: 8px 16px;
@@ -53,5 +53,19 @@
     form input
     {
         width: 100%;
+    }
+
+    form a
+    {
+        text-decoration: none;
+    }
+
+    form h3
+    {
+        widows: 100%;
+        height: 10px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
     }
 </style>

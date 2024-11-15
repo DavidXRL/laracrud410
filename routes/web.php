@@ -60,4 +60,5 @@ Route::get('/createProducts', [App\Http\Controllers\ProductController::class, 'c
 
  route::resource('/products', App\Http\Controllers\ProductController::class);
  route::resource('/brands', App\Http\Controllers\BrandController::class);
-
+Route::get('/products/{product}/delete',
+[App\Http\Controllers\ProductController::class, 'delete'])-> name('products.delete');
