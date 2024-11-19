@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::get(); //obtener todos los datos de la tabla
-        return view('products_index', compact('products'));
+        return view('admin/products/index', compact('products'));
     }
 
     /**
@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function create()
     {
         $brands = Brand::pluck('id', 'brand');
-        return view('products_create', compact('brands'));
+        return view('admin/products/create', compact('brands'));
     }
 
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products_show', compact('product')); //retornamos la vista cuando la mandamos a llamar desde el controlador
+        return view('admin/products/show', compact('product')); //retornamos la vista cuando la mandamos a llamar desde el controlador
     }
 
     /**
@@ -53,11 +53,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $brands = Brand::pluck('id', 'brand');
-        echo view('products_edit', compact('brands', 'product'));
+        echo view('admin/products/edit', compact('brands', 'product'));
 
     }
 
     /**
+     *
      * Update the specified resource in storage.
      */
     public function update(Request $request, Product $product)
@@ -69,7 +70,7 @@ class ProductController extends Controller
 
     public function delete(Product $product)
     {
-        echo view ('products_delete', compact('product'));
+        echo view ('admin/products/delete', compact('product'));
     }
 
     /**

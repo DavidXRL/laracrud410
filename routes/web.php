@@ -23,15 +23,15 @@ Route::get('/', function () {
 //     return view('products_index');
 // }) ->name('products');
 
-Route::get('/sales', function()
-{
-    return view('sales_index');
-}) -> name('sales');
+// Route::get('/sales', function()
+// {
+//     return view('sales_index');
+// }) -> name('sales');
 
-Route::get('/clients', function()
-{
-    return view('clients_index');
-}) ->name('clients');
+// Route::get('/clients', function()
+// {
+//     return view('clients_index');
+// }) ->name('clients');
 
 /*
 
@@ -62,3 +62,5 @@ Route::get('/createProducts', [App\Http\Controllers\ProductController::class, 'c
  route::resource('/brands', App\Http\Controllers\BrandController::class);
 Route::get('/products/{product}/delete',
 [App\Http\Controllers\ProductController::class, 'delete'])-> name('products.delete');
+Route::resource('/clients', App\Http\Controllers\ClientController::class);
+Route::resource('/sales', App\Http\Controllers\SaleController::class);
