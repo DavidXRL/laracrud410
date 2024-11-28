@@ -7,7 +7,7 @@
 <h1>Editar productos</h1>
 
 
-<form action="{{route('products.update', $product->id)}}" method="post">
+<form action="{{route('products.update', $product->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <label for="">Nombre del producto</label>

@@ -6,8 +6,18 @@
 
 <h1>Create de productos</h1>
 
+{{-- vamos a mostrar los errores --}}
+@if ($errors->any())
+{{-- por cada error encontrado vamos a crear --}}
+    @foreach ($errors->all() as $e)
+    {{-- para que respete la clase error --}}
+        <div class="error">
+            {{$e}}
+        </div>
+    @endforeach
+@endif
 
-<form action="{{route('products.store')}}" method="post">
+<form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     <label for="">Nombre del producto</label>
     <input type="text" name="name_product">
@@ -27,7 +37,7 @@
     <br>
 
     <label for="">Cantidad</label>
-    <input type="number" name="nameProduct">
+    <input type="number" name="stock">
 
     <br>
     <br>

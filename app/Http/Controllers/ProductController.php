@@ -5,6 +5,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Products\StoreRequest;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get(); //obtener todos los datos de la tabla
+        //$products = Product::get(); //obtener todos los datos de la tabla
+        $products = Product::paginate(3);
         return view('admin/products/index', compact('products'));
     }
 
@@ -31,11 +33,23 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //echo "Registro realizado";
         //dd($request->all());
-        Product::create($request->all());
+
+        $data = $request->all();
+
+        // SI EL CAMPO IMAGEN TIENE INFORMACIÓN
+        if(isset($data["imagen"]))
+        {
+            $data["imagen"] = $filename = time().".".$data["imagen"]->extension(); //EL PUNTO ES PARA CONCATENAR
+            // GUARDAR IMAGEN EN LA CARPETA PÚBLICA
+            $request->imagen->move(public_path("image/products"), $filename);
+            // LOS CORCHETES SIGNIFICAN ARREGLOS
+            // PARA ACCEDER A LA IMAGEN SE TIENE QUE PONER ENTRE CORCHETES
+        }
+        Product::create($data); //ESTA LÍNEA ES PARA ACTUALIZAR LOS DATOS EN LA BASE DE DATOS
         return to_route('products.index') -> with ('status', 'Producto registrado.');
     }
 
@@ -63,7 +77,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all()); //ESTA LÍNEA ES PARA ACTUALIZAR LOS DATOS EN LA BASE DE DATOS
+        $data = $request ->all();
+
+        // SI EL CAMPO IMAGEN TIENE INFORMACIÓN
+        if(isset($data["imagen"]))
+        {
+            $data["imagen"] = $filename = time(). ".".$data["imagen"]->extension(); //EL PUNTO ES PARA CONCATENAR
+            // GUARDAR IMAGEN EN LA CARPETA PÚBLICA
+            $request->imagen->move(public_path("image/products"), $filename);
+            // LOS CORCHETES SIGNIFICAN ARREGLOS
+            // PARA ACCEDER A LA IMAGEN SE TIENE QUE PONER ENTRE CORCHETES
+        }
+        $product->update($data); //ESTA LÍNEA ES PARA ACTUALIZAR LOS DATOS EN LA BASE DE DATOS
         return to_route('products.index') -> with ('status', 'Producto actualizado.');
     }
 

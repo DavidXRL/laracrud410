@@ -12,7 +12,8 @@
 <table>
     <thead>
         <th>Nombre del producto</th>
-        <th>ID</th>
+        <th>Marca</th>
+        <th>Descripción</th>
         <th>Cantidad</th>
         <th>Precio</th>
         <th>Imagen</th>
@@ -22,11 +23,11 @@
         @foreach ($products as $p)
             <tr>
                 <td>{{$p -> name_product}}</td>
-                <td>{{$p -> brand_id}}</td>
-
+                <td>{{$p->brand->brand}}</td>
+                <td>{{$p->brand->description}}</td>
                 <td>{{$p -> stock}}</td>
                 <td>{{$p -> unit_price}}</td>
-                <td>{{$p -> imagen}}</td>
+                <td><img src="/image/products/{{$p->imagen}}" width="100px" alt="Producto"></td>
                 <td><button><a href="{{route("products.show", $p)}}">Mostrar</a></button>
                 <button><a href="{{route("products.edit", $p)}}">Editar</a></button>
                 <button><a href="{{route("products.delete", $p)}}">Eliminar</a></button>
@@ -35,7 +36,12 @@
         @endforeach
     </tbody>
 </table>
+{{-- esto genera dos enlaces de cada página --}}
+{{$products->links()}}
 </center>
+
+
+
 @endsection
 
 
